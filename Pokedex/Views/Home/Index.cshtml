@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container mx-auto mt-4">
+    <h3 class="text-center">Filtros de busqueda</h3>
+    <div class="d-flex justify-content-center align-items-center ">
+        <form class="m-3 d-flex align-items-center justify-content-center" asp-controller="Home" asp-action="Index" method="post">
+                <select class="form-select" name="SearchByType">
+                    <option value="@null">nada</option>
+                    @foreach (var item in ViewBag.listTypes)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+            <div class="d-flex align-items-center justify-content-center">
+                <input class="bg-success text-white border-0 rounded p-1 m-2" type="submit" value="Buscar" />
+                <a asp-controller="Home" asp-action="Index" class=" bg-secondary p-1 text-decoration-none text-white rounded">Reset</a>
+            </div>
+        </form>
+
+        <form class="m-3 d-flex justify-content-center align-items-center" method="post" asp-controller="Home" asp-action="Index">
+            <input type="text" name="SearchString" class="form-control" placeholder="Buscar por nombre..." />
+            <input type="submit" value="Filter" class="bg-success text-white border-0 rounded p-1 m-2" />
+        </form>
+    </div>
+
+    @if ( Model == null){
+        <h2>No hay pokemones</h2>
+    }else {
+        <div class="row row-cols-1 row-cols-md-3 mt-5">
+            @foreach (var item in Model)
+            {
+            <div class="col-sm-1 mt-4">
+                    <div class="cardw border border-1 border-dark rounded" style="width: 17rem;">
+                        <img src="@item.Imagepath" class="card-img-top border-bottom border-1 border-dark" style="Background-image: url(css/images/Pokemon-forest-by-BlazingIfrit-Fur-Affinity-dot-net.jpg); Background-position: center; " alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">@item.Name</h5>
+                            <h6 class="card-subtitle mb-2 text-muted text-center">#@item.Id</h6>
+                            <div class="d-flex justify-content-center align-items-center">
+                                <label class="bg-success text-white rounded-pill m-2 p-2">@item.Pokemon_type.Name</label>
+                                @if(item.Secundary_pokemonType == null){
+                                    <a></a>
+                                }else{
+                                    <label class="rounded bg-success text-white rounded-pill m-2 p-2">@item.Secundary_pokemonType.Name</label>
+                                }
+                                <label class="bg-primary text-white rounded-pill m-2 p-2">@item.Region.Name</label>
+                            </div>
+                        </div>
+                 </div>
+            </div>
+            }
+        </div>
+    }
+
+</div>

@@ -1,0 +1,32 @@
+﻿@model Application.ViewModel.SavePokemonTypeViewModel
+@{
+    bool editMode = Model.Id == 0 ? false : true;
+    ViewData["Title"] = "Save Pokemon type";
+}
+
+<h1>Save pokemon</h1>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card">
+                <div class="card-header bg-dark text-light">
+                    <h4>@(editMode ? $"Editando el tipo de pokemon: {Model.Name}" : "Agregando un nuevo tipo de pokemon")</h4>
+                </div>
+                <div class="card-body">
+                    <form class="" method="post" asp-controller="Pokemon_type" asp-action="@(editMode ? "Edit" : "Create")">
+
+                        <div class="mb-3">
+                            <label asp-for="Name" class="form-label">Nombre: </label>
+                            <input type="text" asp-for="Name" class="form-control" />
+                            <span class="text-danger" asp-validation-for="Name"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Send</button>
+                        <a class="btn btn-secondary" asp-action="Index" asp-controller="Pokemon_type">Back</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

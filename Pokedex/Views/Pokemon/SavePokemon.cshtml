@@ -1,0 +1,62 @@
+﻿@model Application.ViewModel.SavePokemonViewModel
+@{
+    bool editMode = Model.Id == 0 ? false : true;
+    ViewData["Title"] = "Save Pokemon";
+}
+
+<h1>Save pokemon</h1>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card">
+                <div class="card-header bg-dark text-light">
+                    <h4>@(editMode ? $"Editando el pokemon: {Model.Name}" : "Agregando un nuevo pokemon")</h4>
+                </div>
+                <div class="card-body">
+                    <form class="" method="post" asp-controller="Pokemon" asp-action="@(editMode ? "Edit" : "Create")">
+
+                        <div class="mb-3">
+                            <label asp-for="Name" class="form-label">Nombre: </label>
+                            <input type="text" asp-for="Name" class="form-control"/>
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Imagepath" class="form-label">Image path: </label>
+                            <input type="text" asp-for="Imagepath" class="form-control" />
+                            <span asp-validation-for="Imagepath" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="PrimaryType_Id" class="form-label">Primary type: </label>
+                            <select asp-for="PrimaryType_Id" asp-items="@(new SelectList(ViewBag.listTypes, "Id", "Name"))" class="form-select">
+                                <option value="">Escoga una opcion</option>
+                            </select>
+                            <span class="text-danger" asp-validation-for="PrimaryType_Id"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="SecundaryType_Id" class="form-label">Secundary type: </label>
+                            <select asp-for="SecundaryType_Id" asp-items="@(new SelectList(ViewBag.listTypes, "Id", "Name"))" class="form-select">
+                                <option value="@null">Ninguna</option>
+                            </select>
+                            <span class="text-danger" asp-validation-for="SecundaryType_Id"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Region_Id" class="form-label">Region: </label>
+                            <select asp-for="Region_Id" asp-items="@(new SelectList(ViewBag.listRegions, "Id", "Name"))" class="form-select">
+                                <option value="">Escoga una opcion</option>
+                            </select>
+                            <span class="text-danger" asp-validation-for="Region_Id"></span>
+                        </div>
+
+                        <button class="btn btn-primary" >Send</button>
+                        <a class="btn btn-secondary" asp-action="Index" asp-controller="Pokemon">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+﻿@model List<Application.ViewModel.RegionViewModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="">
+
+    <div class="row mb-3">
+        <div class="col-3 offset-9">
+            <a asp-controller="Region" asp-action="Create" class="btn btn-outline-success">agregar nuevo tipo de pokemon</a>
+        </div>
+    </div>
+
+    @if (Model == null || Model.Count == 0)
+    {
+        <h2>No hay regiones agregadas</h2>
+    }
+    else
+    {
+        <div>
+            @foreach (var item in Model)
+            {
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title fs-3">@item.Name</h5>
+
+                        <a asp-controller="Region" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        <a asp-controller="Region" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+
+</div>

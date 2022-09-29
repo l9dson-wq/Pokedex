@@ -1,0 +1,47 @@
+﻿@model List<Application.ViewModel.PokemonTypeViewModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="">
+
+    <div class="row mb-3">
+        <div class="col-3 offset-9">
+            <a asp-controller="Pokemon_type" asp-action="Create" class="btn btn-outline-success">Add new pokemon type</a>
+        </div>
+    </div>
+
+    @if (Model == null || Model.Count == 0)
+    {
+        <h2>No hay tipos de pokemones agregados</h2>
+    }
+    else
+    {
+
+        <div>
+            @foreach (var item in Model)
+            {
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#Id</th>
+                            <th>Name</th>
+                            <th> </th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.Name</td>
+                            <td><a asp-controller="Pokemon_type" asp-action="Edit" asp-route-id="@item.Id">Edit</a></td>
+                            <td><a asp-controller="Pokemon_type" asp-action="Delete" asp-route-id="@item.Id">Delete</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            }
+        </div>
+
+    }
+
+</div>
