@@ -8,7 +8,7 @@ using:
   => Bootstrap 5
   => SQL server 
   
-You should have the posibility of: 
+You should be able to: 
 1. See all the added pokemons
 2. Filter by name and Region
 3. Add a new pokemon, edit and delete a pokemon
