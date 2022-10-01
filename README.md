@@ -12,10 +12,10 @@ You should be able to:
 1. See all the added pokemons
 2. Filter by name and Region
 3. Add a new pokemon, edit and delete a pokemon
-4. Add a new regionm, edit and delete a region
+4. Add a new region, edit and delete a region
 5. Add a new type of pokemon, edit and delete a type of pokemon
 
-Some images of the current version ( pre-final ):
+Some images of the current version :
 
 Home page: 
 ![imagen](https://user-images.githubusercontent.com/69158247/193175650-fd69b085-c086-44d7-b472-4122289ca991.png)
