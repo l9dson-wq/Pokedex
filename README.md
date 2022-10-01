@@ -19,3 +19,12 @@ Some images of the current version ( pre-final ):
 
 Home page: 
 ![imagen](https://user-images.githubusercontent.com/69158247/193175650-fd69b085-c086-44d7-b472-4122289ca991.png)
+
+pokemon page: 
+![imagen](https://user-images.githubusercontent.com/69158247/193377660-291431ab-8b65-4474-82ec-f1860370cc17.png)
+
+Regions page:
+![imagen](https://user-images.githubusercontent.com/69158247/193377691-82f0a96a-a82d-439a-93b5-47f97381dc9d.png)
+
+Types page:
+![imagen](https://user-images.githubusercontent.com/69158247/193377699-01af3616-a004-43dd-a410-e5fb924a0498.png)
