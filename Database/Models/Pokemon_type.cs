@@ -15,6 +15,6 @@ namespace Database.Models
 
         //Navigation property
         public ICollection<Pokemon> Pokemones { get; set; }
-        public ICollection<Pokemon> Secundary_pokemones { get; set; }
+        
     }
 }

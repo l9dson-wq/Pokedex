@@ -1,14 +1,18 @@
 ﻿@model List<Application.ViewModel.RegionViewModel>
 @{
     ViewData["Title"] = "Home Page";
+    
+
+    List<string> colors_list = new List<string> {"bg-primary", "bg-secondary", "bg-success","bg-danger", "bg-warning","bg-info" };
 }
 
+<h2 class="text-center">Mantenimiento de regiones</h2>
 
 <div class="">
 
     <div class="row mb-3">
         <div class="col-3 offset-9">
-            <a asp-controller="Region" asp-action="Create" class="btn btn-outline-success">agregar nuevo tipo de pokemon</a>
+            <a asp-controller="Region" asp-action="Create" class="btn btn-outline-success">agregar una nueva region</a>
         </div>
     </div>
 
@@ -18,15 +22,17 @@
     }
     else
     {
-        <div>
+        <div class="row row-cols-1 row-cols-md-3 mt-5">
             @foreach (var item in Model)
             {
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
+                <div class="card mt-2 shadow rounded m-2" style="width: 15rem;">
+                    <div class="card-body rounded-2 d-flex justify-content-center align-items-center flex-column">
                         <h5 class="card-title fs-3">@item.Name</h5>
 
-                        <a asp-controller="Region" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                        <a asp-controller="Region" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        <div class="mt-2">
+                            <a class="p-2 bg-primary text-white rounded-pill text-decoration-none" asp-controller="Region" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                            <a class="p-2 bg-danger text-white rounded-pill text-decoration-none" asp-controller="Region" asp-action="Delete" asp-route-id="@item.Id">Borrar</a>
+                        </div>
                     </div>
                 </div>
             }

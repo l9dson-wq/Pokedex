@@ -38,7 +38,7 @@
 
                         <div class="mb-3">
                             <label asp-for="SecundaryType_Id" class="form-label">Secundary type: </label>
-                            <select asp-for="SecundaryType_Id" asp-items="@(new SelectList(ViewBag.listTypes, "Id", "Name"))" class="form-select">
+                            <select asp-for="SecundaryType_Id" asp-items="@(new SelectList(ViewBag.listypes2, "Id", "Name"))" class="form-select">
                                 <option value="@null">Ninguna</option>
                             </select>
                             <span class="text-danger" asp-validation-for="SecundaryType_Id"></span>

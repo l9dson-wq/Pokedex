@@ -13,3 +13,5 @@ C:\Users\AndelDev\source\repos\Pokedex\Application\obj\Debug\net6.0\Application.
 C:\Users\AndelDev\source\repos\Pokedex\Application\obj\Debug\net6.0\refint\Application.dll
 C:\Users\AndelDev\source\repos\Pokedex\Application\obj\Debug\net6.0\Application.pdb
 C:\Users\AndelDev\source\repos\Pokedex\Application\obj\Debug\net6.0\ref\Application.dll
+C:\Users\AndelDev\source\repos\Pokedex\Application\bin\Debug\net6.0\Application.runtimeconfig.json
+C:\Users\AndelDev\source\repos\Pokedex\Application\obj\Debug\net6.0\Application.genruntimeconfig.cache

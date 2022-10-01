@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
@@ -16,14 +17,18 @@ namespace Database
         public DbSet<Pokemon> pokemones { get; set;}
         public DbSet<Region> Regions { get; set;}
         public DbSet<Pokemon_type> pokemon_type { get; set; }
+        public DbSet<Pokemon_type2> pokemon_type2 { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelbuilder)
         {
+            
 
             //Fluent API
             var MBE_POKEMON = modelbuilder.Entity<Pokemon>();
             var MBE_REGION = modelbuilder.Entity<Region>();
             var MBE_POKEMONTYPE = modelbuilder.Entity<Pokemon_type>();
+            var MBE_POKEMONTYPE2 = modelbuilder.Entity<Pokemon_type2>();
 
             #region tables
             MBE_POKEMON.ToTable("Pokemons");
@@ -46,15 +51,15 @@ namespace Database
 
             MBE_POKEMONTYPE
                 .HasMany<Pokemon>(Pokemon_type => Pokemon_type.Pokemones)
-                .WithOne(Pokemon => Pokemon.Pokemon_type)
-                .HasForeignKey(Pokemon => Pokemon.PrimaryType_Id)
+                .WithOne(p => p.Pokemon_type)
+                .HasForeignKey(pokemones => pokemones.PrimaryType_Id)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            MBE_POKEMONTYPE
-                .HasMany<Pokemon>(Pokemon_Type => Pokemon_Type.Secundary_pokemones)
-                .WithOne(Pokemon => Pokemon.Secundary_pokemonType)
-                .HasForeignKey(Pokemon => Pokemon.SecundaryType_Id)
-                .OnDelete(DeleteBehavior.ClientCascade);
+            MBE_POKEMONTYPE2
+                .HasMany<Pokemon>(Pokemon_type2 => Pokemon_type2.Pokemones)
+                .WithOne(p => p.Secundary_pokemonType)
+                .HasForeignKey(pokemones => pokemones.SecundaryType_Id)
+                .OnDelete(DeleteBehavior.Cascade);
             #endregion
 
             #region "Property Configurations"
@@ -94,6 +99,13 @@ namespace Database
                 .Property(pt => pt.Name)
                 .HasMaxLength(50)
                 .IsRequired();
+            #endregion
+
+            #region Pokemon_type2
+            MBE_POKEMONTYPE2
+                .Property(pt2 => pt2.Name)
+                .HasMaxLength(50)
+                .IsRequired(false);
             #endregion
 
             #endregion

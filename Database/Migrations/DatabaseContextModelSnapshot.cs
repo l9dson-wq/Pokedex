@@ -77,6 +77,23 @@ namespace Database.Migrations
                     b.ToTable("pokemon_types", (string)null);
                 });
 
+            modelBuilder.Entity("Database.Models.Pokemon_type2", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("pokemon_type2");
+                });
+
             modelBuilder.Entity("Database.Models.Region", b =>
                 {
                     b.Property<int>("Id")
@@ -109,10 +126,10 @@ namespace Database.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Database.Models.Pokemon_type", "Secundary_pokemonType")
-                        .WithMany("Secundary_pokemones")
+                    b.HasOne("Database.Models.Pokemon_type2", "Secundary_pokemonType")
+                        .WithMany("Pokemones")
                         .HasForeignKey("SecundaryType_Id")
-                        .OnDelete(DeleteBehavior.ClientCascade);
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Pokemon_type");
 
@@ -124,8 +141,11 @@ namespace Database.Migrations
             modelBuilder.Entity("Database.Models.Pokemon_type", b =>
                 {
                     b.Navigation("Pokemones");
+                });
 
-                    b.Navigation("Secundary_pokemones");
+            modelBuilder.Entity("Database.Models.Pokemon_type2", b =>
+                {
+                    b.Navigation("Pokemones");
                 });
 
             modelBuilder.Entity("Database.Models.Region", b =>

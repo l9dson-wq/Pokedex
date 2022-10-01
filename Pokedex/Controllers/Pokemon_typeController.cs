@@ -72,5 +72,8 @@ namespace Pokedex.Controllers
             await _pokemonTypeRepository.Delete(id);
             return RedirectToRoute(new { controller = "Pokemon_type", action = "Index" });
         }
+
+        // Datos para la segundo tabla de las tipo secundarios
+
     }
 }

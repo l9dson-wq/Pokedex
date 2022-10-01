@@ -33,6 +33,9 @@ namespace Pokedex.Controllers
             var listTypes = _dbContext.pokemon_type.ToList();
             ViewBag.listTypes = listTypes;
 
+            var listTypes2 = _dbContext.pokemon_type2.ToList();
+            ViewBag.listypes2 = listTypes2;
+
             return RedirectToAction("SavePokemon");
         }
 
@@ -43,7 +46,10 @@ namespace Pokedex.Controllers
 
             var listTypes = _dbContext.pokemon_type.ToList();
             ViewBag.listTypes = listTypes;
-             
+
+            var listTypes2 = _dbContext.pokemon_type2.ToList();
+            ViewBag.listypes2 = listTypes2;
+
             return View(new SavePokemonViewModel());
         }
 
@@ -55,6 +61,9 @@ namespace Pokedex.Controllers
 
             var listTypes = _dbContext.pokemon_type.ToList();
             ViewBag.listTypes = listTypes;
+
+            var listTypes2 = _dbContext.pokemon_type2.ToList();
+            ViewBag.listypes2 = listTypes2;
 
             if (!ModelState.IsValid)
             { 
@@ -74,12 +83,24 @@ namespace Pokedex.Controllers
             var listTypes = _dbContext.pokemon_type.ToList();
             ViewBag.listTypes = listTypes;
 
+            var listTypes2 = _dbContext.pokemon_type2.ToList();
+            ViewBag.listypes2 = listTypes2;
+
             return View("SavePokemon", await _pokemonService.GetByIdSaveViewModel(id));
         }
 
         [HttpPost]
         public async Task<IActionResult> Edit(SavePokemonViewModel savePokemon)
         {
+            var listRegions = _dbContext.Regions.ToList();
+            ViewBag.listRegions = listRegions;
+
+            var listTypes = _dbContext.pokemon_type.ToList();
+            ViewBag.listTypes = listTypes;
+
+            var listTypes2 = _dbContext.pokemon_type2.ToList();
+            ViewBag.listypes2 = listTypes2;
+
             if (!ModelState.IsValid)
             {
                 return View("SavePokemon", savePokemon);

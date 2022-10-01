@@ -23,6 +23,6 @@ namespace Database.Models
 
         public Pokemon_type Pokemon_type { get; set; }
         public Region Region { get; set; }
-        public Pokemon_type Secundary_pokemonType { get; set; }
+        public Pokemon_type2? Secundary_pokemonType { get; set; }
     }
 }

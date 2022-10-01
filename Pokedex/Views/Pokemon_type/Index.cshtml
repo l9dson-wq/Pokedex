@@ -3,6 +3,8 @@
     ViewData["Title"] = "Home Page";
 }
 
+<h2 class="text-center">Mantenimiento de tipo de pokemones</h2>
+
 <div class="">
 
     <div class="row mb-3">
@@ -11,6 +13,13 @@
         </div>
     </div>
 
+    <div class="row mb-3">
+        <div class="col-3 offset-9">
+            <a asp-controller="Pokemon_type2" asp-action="Index" class="btn btn-outline-primary">Ir a mantenimiento de tipos secundarios</a>
+        </div>
+    </div>
+
+
     @if (Model == null || Model.Count == 0)
     {
         <h2>No hay tipos de pokemones agregados</h2>
@@ -18,27 +27,19 @@
     else
     {
 
-        <div>
+        <div class="row row-cols-1 row-cols-md-3 mt-5">
             @foreach (var item in Model)
             {
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>#Id</th>
-                            <th>Name</th>
-                            <th> </th>
-                            <th> </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>@item.Id</td>
-                            <td>@item.Name</td>
-                            <td><a asp-controller="Pokemon_type" asp-action="Edit" asp-route-id="@item.Id">Edit</a></td>
-                            <td><a asp-controller="Pokemon_type" asp-action="Delete" asp-route-id="@item.Id">Delete</a></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="card mt-2 shadow rounded m-2" style="width: 15rem;">
+                    <div class="card-body rounded-2 d-flex justify-content-center align-items-center flex-column">
+                        <h5 class="card-title fs-3">@item.Name</h5>
+
+                        <div class="mt-2">
+                            <a class="p-2 bg-primary text-white rounded-pill text-decoration-none" asp-controller="Pokemon_type" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                            <a class="p-2 bg-danger text-white rounded-pill text-decoration-none" asp-controller="Pokemon_type" asp-action="Delete" asp-route-id="@item.Id">Borrar</a>
+                        </div>
+                    </div>
+                </div>
             }
         </div>
 

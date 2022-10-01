@@ -31,6 +31,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9rZW1vblxTYXZlUG9rZW1vbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/AndelDev/source/repos/Pokedex/Pokedex/Views/Pokemon_type2/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9rZW1vbl90eXBlMlxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/AndelDev/source/repos/Pokedex/Pokedex/Views/Pokemon_type2/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9rZW1vbl90eXBlMlxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/AndelDev/source/repos/Pokedex/Pokedex/Views/Pokemon_type2/SavePokemonType.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9rZW1vbl90eXBlMlxTYXZlUG9rZW1vblR5cGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/AndelDev/source/repos/Pokedex/Pokedex/Views/Pokemon_type/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9rZW1vbl90eXBlXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
